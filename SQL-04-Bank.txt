@@ -1,0 +1,50 @@
+a. Create a table Bank
+
+create table bank (
+  accno number(12),
+  custname varchar2(25),
+  acctype char(2),
+  balance number(12),
+  dot date,
+  tamount number(12),
+  ttype char(1)
+  );
+  
+b. Insert records into the table
+
+Insert into bank values (1234, 'prashanth', 'CA', 50000, '23-oct-2022', 5000, 'D'); 
+
+Insert into bank values (1235, 'pragathi', 'CA', 45000, '23-oct-2022', 4500, 'W'); 
+
+Insert into bank values (1245, 'prakruthi', 'SB', 56500, '28-sep-2022', 10000, 'D'); 
+
+Insert into bank values (2314, 'priya', 'SB', 32500, '13-aug-2022', 3500, 'W'); 
+
+Insert into bank values (1666, 'pavan', 'SB', 900, '15-aug-2022', 5500, 'D'); 
+
+c. Find the names of all customers whose balance is more than Rs.30000
+
+select custname from bank where balance > 30000;
+
+d. How many customers whose balance amount is less than the minimum in the account.
+(assume minimum balance is Rs. 1000)
+
+select count(*) from bank where balance < 1000;
+
+Perform transactions on T_Type.(Deposit or Withdrawal)
+
+update bank set balance = balance + tamount where ttype = 'D';
+
+update bank set balance = balance - tamount where ttype = 'W';
+
+e. Display transaction amount on a particular day.
+
+select * from bank where dot = '28-sep-2022';
+
+f. Display all the records of CA Account.
+
+select * from bank where acctype = 'CA';
+
+g. Display all the records of the table Bank.
+
+select * from bank;

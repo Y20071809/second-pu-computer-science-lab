@@ -1,0 +1,61 @@
+/*
+1. Define headers
+2. Define class sorting with private variables and public functions
+3. Define inputdata() function to get user input
+4. Define sort() function and implement the insertion sort logic
+5. Define outputdata() function to display output
+6. Define main() function to invoke all class functions
+*/
+
+#include<iostream>
+#include<iomanip>
+using namespace std;
+
+class sorting
+{
+    private:
+        int a[50], n, i;
+    public:
+        void inputdata();
+        void sort();
+        void outputdata();
+};
+
+void sorting::inputdata(){
+    cout<<"Enter the size of the array";
+    cin>>n;
+    cout<<"Enter the array elements";
+    for(i=0;i<n;i++)
+        cin>>a[i];
+}
+
+void sorting::sort(){
+    int temp,j;
+    for(i=1;i<n;i++)
+    {
+        j=i;
+        while(j>=1 && a[j]<a[j-1])
+        {
+            temp=a[j];
+            a[j]=a[j-1];
+            a[j-1]=temp;
+            j--;
+        }
+    }
+}
+
+void sorting::outputdata(){
+    cout<<"Array elements after sorting"<<endl;
+    for(i=0;i<n;i++)
+        cout<<a[i]<<setw(4);
+}
+
+int main(){
+    sorting s;
+    s.inputdata();
+    s.sort();
+    s.outputdata();
+}
+
+
+

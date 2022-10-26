@@ -1,0 +1,68 @@
+/*
+1. Define headers
+2. Define class quadratic with private variables and public functions
+3. Define input() function to get user input
+4. Define compute() function to calculate the roots
+	-> calculate discriminant value
+	-> if d==0, then roots are equal (r1=r2)
+	-> if d>0, then roots are real and distinct
+	-> if d<0, then roots are complex
+5. Define output() function to display result
+6. Define main() function to invoke all class functions
+*/
+
+#include<iostream>
+#include<math.h>
+
+using namespace std;
+
+class quadratic {
+    private:
+        double a,b,c,d,r1,r2;
+    public:
+        void input();
+        void compute();
+        void output();
+};
+
+void quadratic::input(){
+    cout<<"Enter the co-efficients of a,b,c";
+    cin>>a>>b>>c;
+}
+
+void quadratic::compute(){
+    d= b*b - 4*a*c;
+    if(d==0)
+    {
+        cout<<"Roots are equal"<<endl;
+        r1= -b / (2*a);
+        r2=r1;
+    }
+    else if(d>0){
+        cout<<"Roots are real and distinct"<<endl;
+        r1=(-b + sqrt(d)) / (2*a);
+        r2=(-b - sqrt(d)) / (2*a);
+    }
+    else {
+        cout<<"Roots are imaginary"<<endl;
+        exit(0);
+    }
+}
+
+
+void quadratic::output(){
+    cout<<"First root = "<<r1<<endl;
+    cout<<"Second root = "<<r2<<endl;
+}
+
+int main(){
+    quadratic q;
+    q.input();
+    q.compute();
+    q.output();
+}
+
+
+
+
+

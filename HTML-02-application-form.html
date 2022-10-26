@@ -1,0 +1,66 @@
+<!--
+Steps
+# Create an HTML template with Head and Body section
+# Add a heading
+# Create a form and a table
+# Add Name and Password as textfields
+# Add Gender as radiobutton
+# Add Qualification as checkbox
+# Add Country as dropdown
+# Add Remarks as textarea
+# Add Submit and Reset buttons
+-->
+
+<html>
+	<head>
+		<title> Student Form </title>
+	</head>
+	<body>
+		<center> <h1> Application Form </h1> </center>
+		<form>
+			<table border="3" cellpadding="10">
+				<tr>
+					<th> Enter Name </th>
+					<td> <input type="text"/> </td>
+				</tr>
+				<tr>
+					<th> Enter Password </th>
+					<td> <input type="password"/> </td>
+				</tr>
+				<tr>
+					<th> Gender </th>
+					<td> 
+						<input type ="radio" name="G"> Male 
+						<input type = "radio" name="G"> Female
+					</td>
+				</tr>
+				<tr>
+					<th> Qualification </th>
+					<td>
+						<input type = "checkbox"> SSLC
+						<input type="checkbox"> PUC
+						<input type="checkbox"> Degree
+					</td>
+				</tr>
+				<tr>
+					<th> Select Country </th>
+					<td>
+						<select>
+							<option> India </option>
+							<option> Australia </option>
+							<option> USA </option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+						<th> Remarks </th>
+						<td> <textarea rows="5" cols="30"> </textarea></td>
+				</tr>
+				<tr>
+					<th> <input type="submit" value="submit"> </th>
+					<th> <input type="reset" > </th>
+				</tr>
+			</table>
+		</form>
+	</body>
+</html>

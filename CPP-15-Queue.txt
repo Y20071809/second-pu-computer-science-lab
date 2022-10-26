@@ -1,0 +1,100 @@
+/*
+1. Define headers
+2. Define 'max' as global variable with default maximum value
+3. Define class queue with private variables and public functions
+4. Add a constructor to initialise front and rear
+5. Define qinsert() function to insert items to the queue at the rear end
+6. Define qdelete() function to delete items from the front of the queue
+7. Define qdisplay() to display the queue items
+8. Define main() function
+		-> get user choice to insert / delete / display items in the queue
+*/
+
+#include<iostream>
+#include<iomanip>
+#define max 3
+
+using namespace std;
+
+class queue {
+    private:
+        int que[100];
+        int front, rear, item;
+    public:
+        queue(){
+            front = 0;
+            rear = -1;
+        }
+        void qinsert();
+        void qdelete();
+        void qdisplay();
+};
+
+void queue::qinsert() {
+    if(rear==max-1) {
+        cout<<"Queue Overflow"<<endl;
+        return;
+    }
+    cout<<"Enter item to insert ";
+    cin>>item;
+    rear++;
+    que[rear]=item;
+    cout<<item<<" is inserted successfully"<<endl;
+}
+
+void queue::qdelete() {
+    int x = que[front];
+    if(rear == front-1) {
+        cout<<"Queue underflow"<<endl;
+    }
+    else if(front == rear){
+        front = 0;
+        rear = -1;
+    } else {
+        front ++;
+    }
+    cout<<x<<" is deleted successfully "<<endl;
+}
+
+void queue::qdisplay() {
+    if(rear == front-1){
+        cout<<"Queue is empty";
+        
+    }else {
+        cout<<"Queue contains "<<endl;
+        for(int i=front; i<=rear;i++){
+            cout<<que[i]<<setw(4);
+        }
+        cout<<endl;
+    }
+}
+
+int main(){
+    queue q;
+    int choice;
+    while(choice != 4){
+        cout<<"\n Queue Operation"<<endl;
+        cout<<"1 for insert"<<endl;
+        cout<<"2 for delete"<<endl;
+        cout<<"3 for display"<<endl;
+        cout<<"4 for exit"<<endl;
+        cout<<"Enter your choice";
+        cin>>choice;
+        
+        switch(choice){
+            case 1: q.qinsert();
+                    break;
+            case 2: q.qdelete();
+                    break;
+            case 3: q.qdisplay();
+                    break;
+            case 4: exit(0);
+            default: cout<<"Wrong choice";
+        }
+    }
+}
+
+
+
+
+

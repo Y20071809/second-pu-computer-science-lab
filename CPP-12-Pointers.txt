@@ -1,0 +1,49 @@
+/*
+1. Define headers
+2. Define class student with private variables and public functions
+3. Define input() function to get user input
+4. Define display() function to display the student details
+5. Define main() function, create pointer variable and invoke functions using pointer to object concept
+*/
+
+#include<iostream>
+
+using namespace std;
+
+class student {
+    private:
+        char regno[25];
+        char name[25];
+        float fee;
+    public:
+        void input();
+        void display();
+
+};
+
+void student::input() {
+    cout<<"Enter the register number: ";
+    cin.getline(regno, 25);
+    cout<<"Enter the student name: ";
+    cin.getline(name, 25);
+    cout<<"Enter the fees paid: ";
+    cin>>fee;
+}
+
+void student::display(){
+    cout<<"Register number = "<<regno<<endl;
+    cout<<"Student name = "<<name<<endl;
+    cout<<"Fees paid = "<<fee;
+}
+
+int main() {
+    student s, *ptr;
+    ptr = &s;
+    ptr->input();
+    ptr->display();
+}
+
+
+
+
+

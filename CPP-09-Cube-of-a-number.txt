@@ -1,0 +1,29 @@
+/*
+Steps
+1. Define headers
+2. Define class cube with inline function to calculate cube of a number
+3. Define main() function to get user input and call the inline function and display result
+*/
+
+#include<iostream>
+
+using namespace std;
+
+class cube {
+    public:
+        inline int calculate(int a) {
+            return (a*a*a);
+        }
+};
+
+int main() {
+    int x;
+    cube c;
+    cout<<"Enter a number ";
+    cin>>x;
+    cout<<"Cube of "<<x<< " = "<<c.calculate(x);
+}
+
+
+
+

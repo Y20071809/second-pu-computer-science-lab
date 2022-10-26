@@ -1,0 +1,66 @@
+/*
+1. Define headers
+2. Define class student with data members rollno and name
+3. Add a member function to get user input
+4. Add another member function to display the student data
+5. Define child class 'result' with data members for marks and total
+6. Add member functions to get student marks and display the same
+7. Add main function, create object from derived class and invoke all functions
+*/
+
+#include <iostream>
+
+using namespace std;
+
+class student {
+    private:
+        char rollno[25];
+        char name[25];
+    public:
+        void baseinput() {
+            cout<<"Enter the roll number";
+            cin.getline(rollno, 25);
+            cout<<"Enter the student name";
+            cin.getline(name, 25);
+        }
+        
+        void basedisplay() {
+            cout<<"Roll number = "<<rollno<<endl;
+            cout<<"Name = "<<name<<endl;
+        }
+};
+
+class result : public student {
+    private:
+        int marks1, marks2, total;
+    public:
+        void dinput(){
+            cout<<"Enter first subject marks";
+            cin>>marks1;
+            cout<<"Enter second subject marks";
+            cin>>marks2;
+        }
+        void ddisplay() {
+            total = marks1 + marks2;
+            cout<<"Subject 1 marks = "<< marks1<<endl;
+            cout<<"Subject 2 marks = "<< marks2<<endl;
+            cout<<"Total marks = "<< total;
+        }
+};
+
+int main(){
+    result r;
+    r.baseinput();
+    r.dinput();
+    r.basedisplay();
+    r.ddisplay();
+    
+}
+
+
+
+
+
+
+
+

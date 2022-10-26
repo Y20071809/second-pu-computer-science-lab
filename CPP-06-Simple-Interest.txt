@@ -1,0 +1,49 @@
+/*
+1. Define headers
+2. Define class simple with private variables and public functions
+3. Define input() function to get user input
+4. Define compute() function to calculate simple interest
+5. Define output() function to display the result
+6. Define main() function to invoke all class functions
+*/
+
+#include<iostream>
+using namespace std;
+
+class simple {
+    private:
+        double p,t,r,si;
+    public:
+        void input();
+        void compute();
+        void output();
+};
+
+void simple::input(){
+    cout<<"Enter the principal amount";
+    cin>>p;
+    cout<<"Enter time";
+    cin>>t;
+    cout<<"Enter the rate of interest";
+    cin>>r;
+}
+
+void simple::compute(){
+    si = (p*t*r) / 100;
+}
+
+void simple::output(){
+    cout<<"Principal amount = "<<p<<endl;
+    cout<<"Time = "<<t<<endl;
+    cout<<"Rate of interest = "<<r<<endl;
+    cout<<"Simple interest = "<<si;
+}
+
+int main(){
+    simple s;
+    s.input();
+    s.compute();
+    s.output();
+}
+
+

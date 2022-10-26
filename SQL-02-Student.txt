@@ -1,0 +1,76 @@
+a. Create a table for a class of students.
+
+create table student (
+  sid number(4),
+  sname varchar2(25),
+  s1marks number(3),
+  s2marks number(3),
+  s3marks number(3),
+  s4marks number(3),
+  s5marks number(3),
+  s6marks number(3) );
+
+b. Insert records into the table.
+
+Insert into student values (11, 'Rahul', 90, 88, 75,56,99, 66);
+
+Insert into student values (14, 'Ankita', 80,78,87,97,85,74);
+
+Insert into student values (15, 'Kiran', 70,28,96,59,74,54);
+
+Insert into student values (13, 'Manu', 97,92,34,77,65,84);
+
+Insert into student values (12, 'Asha', 60,78,87,97,74,77);
+
+c. Display the description of the fields in the table.
+
+desc student;
+
+d. Add and calculate total percentage of marks.
+
+alter table student add (total number(3), percentage number(2) );
+
+update student set total = s1marks + s2marks + s3marks + s4marks + s5marks + s6marks;
+
+update student set percentage = total / 6;
+
+e. Compute the result as "pass" or "fail" by checking if the student has scored more than 35 marks in each subject.
+
+alter table student add result varchar2(4);
+
+update student set result = 'pass' where s1marks > 35 and s2marks > 35 and s3marks > 35 and s4marks > 35 and s5marks > 35 and s6marks > 35;
+
+update student set result = 'fail' where s1marks < 35 or s2marks < 35 or s3marks < 35 or s4marks < 35 or s5marks < 35 or s6marks < 35;
+
+f. List the contents of the table.
+
+select * from student;
+
+g. Retrieve only student id and name of all students.
+
+select sid, sname from student;
+
+h. List the students who have result as pass.
+
+select * from student where result='pass';
+
+i. List the students who have result as fail.
+
+select * from student where result='fail';
+
+j. Count the number of students who have passed.
+
+select count(*) from student where result='pass';
+
+k. Count the number of students who have failed.
+
+select count(*) from student where result='fail';
+
+l. List the students who have percentage greater than 60.
+
+select * from student where percentage > 60;
+
+m. Sort the table order according to the order of student id.
+
+select * from student order by sid;
+

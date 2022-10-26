@@ -1,0 +1,43 @@
+#include <iostream>
+using namespace std;
+
+class frequency {
+    private:
+        int n, a[100], i, ele, f;
+    
+    public:
+        void getdata();
+        void execute();
+        void displaydata();
+};
+
+void frequency::getdata() {
+    cout<<"Enter the size of array";
+    cin>>n;
+    cout<<"Enter the array elements";
+    for(i=0;i<n;i++) 
+        cin>>a[i];
+    cout<<"Enter the search element";
+    cin>>ele;
+}
+
+void frequency::execute() {
+    f=0;
+    for(i=0;i<n;i++)
+        if(a[i]==ele)
+            f++;
+}
+
+void frequency::displaydata() {
+    if(f>0) 
+        cout<<"Frequency of"<<ele<<" is "<<f;
+    else 
+        cout<<ele<<" is not found";
+}
+
+int main() {
+    frequency f;
+    f.getdata();
+    f.execute();
+    f.displaydata();
+}

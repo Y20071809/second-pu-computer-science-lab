@@ -1,0 +1,64 @@
+/*1. Define headers
+2. Define class binary with private variables and public functions
+3. Define input() function to get user input
+4. Define search() function and implement the binary search logic
+5. Define output() function to display output data
+6. Define main() function to invoke all class functions
+*/
+
+#include<iostream>
+using namespace std;
+
+class binary{
+    private:
+        int a[50], n, ele, pos,i;
+    public:
+        void input();
+        void search();
+        void output();
+};
+
+void binary::input(){
+    cout<<"Enter the size of the array";
+    cin>>n;
+    cout<<"Enter the array elements in ascending order";
+    for(i=0;i<n;i++)
+        cin>>a[i];
+    cout<<"Enter the search element";
+    cin>>ele;
+}
+
+void binary::search(){
+    int low=0,mid,high=n-1;
+    pos=1;
+    while(low<=high){
+        mid= (low+high) / 2;
+        if(ele==a[mid]){
+            pos=mid;
+            break;
+        }
+        else if(ele < a[mid]){
+            high = mid-1;
+        }
+        else
+        {
+            low = mid + 1;
+        }
+    }
+}
+
+void binary::output(){
+    if(pos>=0)
+        cout<<ele<<" is present at position: "<<pos+1;
+    else
+        cout<<ele<<" is not found";
+    
+}
+
+int main(){
+    binary b;
+    b.input();
+    b.search();
+    b.output();
+}
+

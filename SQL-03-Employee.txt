@@ -1,0 +1,90 @@
+1.Create a table Department
+
+create table department (
+ deptid number(2),
+ deptname varchar2(20),
+ supervisor varchar2(20)
+ );
+ 
+2. Create the table Employee
+
+create table employee (
+  empid number(4), deptid number(2),
+  empname varchar2(25),
+  empsalary number(5)
+  );
+  
+3. Insert records into the table Department
+(Assume the department names as purchase(id-01), account(id-02), sales(id-03) and apprentice(id-04)
+
+Insert into department values (01, 'purchase', 'Rahul');
+
+Insert into department values (02, 'accounts', 'Ramesh');
+
+Insert into department values (03, 'sales', 'Rekha');
+
+Insert into department values (04, 'apprentice', 'Riya');
+
+4. Insert records into the table employee
+
+Insert into employee values (11, 01, 'Kiran', 50000);
+
+Insert into employee values (13, 02, 'Latha', 65000);
+
+Insert into employee values (12, 02, 'Ram', 45000);
+
+Insert into employee values (17, 03, 'Ramya', 38000);
+
+Insert into employee values (18, 04, 'Ankita', 26000);
+
+Insert into employee values (14, 01, 'Sneha', 68000);
+
+Insert into employee values (15, 03, 'Neema', 55000);
+
+Insert into employee values (20, 01, 'Mahesh', 46000);
+
+Insert into employee values (16, 02, 'Jayesh', 34000);
+
+Insert into employee values (19, 03, 'Sneha', 54000);
+
+5. Find the name of all employees who work for the accounts department
+
+select empname from employee where deptid = (select deptid from department where deptname = 'accounts');
+
+6. How many employees work for accounts department?
+
+select count(*) from employee where deptid = (select deptid from department where deptname = 'accounts');
+
+
+7. What is the minimum, maximum and average salary of employees working for accounts department ?
+
+select min(empsalary), max(empsalary), avg(empsalary) from employee where deptid = (select deptid from department where deptname = 'accounts');
+
+8. List the employees working for a particular supervisor.
+
+select * from employee where deptid = (select deptid from department where supervisor = 'Rahul');
+
+9. Retrieve the department names for each department where only one employee works.
+
+select deptname from department where deptid in (select deptid from employee group by deptid having count(*) = 1);
+
+10. Increase the salary of all employees in the sales department by 15%
+
+update employee set empsalary = empsalary + empsalary *0.5 where deptid = (select deptid from department where deptname = 'sales');
+
+11. Add new column to the table employee, bonus number(5) and compute 5% of the salary to the said field.
+
+alter table employee add bonus number(5);
+
+update employee set bonus = empsalary * 0.05;
+
+12. Retrieve all the records of the table employee.
+
+select * from employee;
+13. Retrieve all the records of the table department.
+
+select * from department;
+
+14. Delete all the rows for employees in the apprentice department.
+
+delete from employee where deptid = (select deptid from department where deptname = 'apprentice');

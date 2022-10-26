@@ -1,0 +1,47 @@
+a. Create a table for electricity bill.
+
+create table ebill (
+  rrnumber varchar2(10),
+  consumername varchar2(25),
+  datebilling date,
+  units number(4)
+);
+
+b. Insert records into the table.
+
+Insert into ebill values ('A001', 'Rahul', '6-oct-2022', 145);
+
+Insert into ebill values ('A002', 'Ankita', '15-aug-2022', 57);
+
+Insert into ebill values ('A003', 'Suresh', '3-sep-2022', 123);
+
+Insert into ebill values ('A004', 'Hemanth', '1-oct-2022', 78);
+
+Insert into ebill values ('A005', 'Anjali', '14-sep-2022', 133);
+
+c. Check the structure of the table.
+
+DESC ebill;
+
+d. Add new fields: billAmount Number(6) and dueDate Date
+
+Alter table ebill add (billAmount number(6), duedate date);
+
+e. Compute bill amount on the following conditions
+	i)   Minimum amount    Rs. 50
+	ii)  First 100 units  Rs. 4.50 / unit
+	iii) > 100 units     Rs. 5.50 / unit
+	
+update ebill set billamount=50;
+
+update ebill set billamount=billamount + units * 4.50 where units < 100;
+
+update ebill set billamount = billamount + 100 *4.50 + (units-100) * 5.50 where units >= 100;
+	
+f. Update due date as 15 days after Bill date.
+
+update ebill set duedate=datebilling + 15;
+
+g. Command to view the records
+
+select * from ebill;

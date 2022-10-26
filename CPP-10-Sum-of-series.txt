@@ -1,0 +1,54 @@
+/*
+Steps
+1. Define headers
+2. Define class series with private variables and public functions
+3. Create constructor to initialize the object values
+4. Define calculate() function to calculate the sum of the series
+5. Define main() function and get user input
+6. Create object using constructor and call calculate() function and display result
+*/
+
+#include<iostream>
+
+using namespace std;
+
+class series {
+    private:
+        int x,n,nt;
+    public:
+        int calculate();
+        series(int p, int q){
+            x=p;
+            n=q;
+        }
+};
+
+int series::calculate(){
+    int i,sum=1, nt;
+    nt=x;
+    for(i=1;i<=n;i++){
+        sum = sum + nt;
+        nt= nt*x;
+    }    
+    return sum;
+}
+
+int main(){
+    int x, n;
+    cout<<"Enter the base and power values ";
+    cin>>x>>n;
+    series obj(x,n);
+    series cpy = obj;
+    cout<<"Object 1 : sum of the series = "<<obj.calculate()<<endl;
+    cout<<"Object 2 : Sum of the series = "<<cpy.calculate();
+}
+
+
+
+
+
+
+
+
+
+

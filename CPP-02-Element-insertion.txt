@@ -1,0 +1,63 @@
+/*
+1. Define headers
+2. Define insertion class with private variables and public functions
+3. Define getdata() function to get user input
+4. Define execute() function to perform array element insertion
+5. Define putdata() function to show array elements
+6. Define main() function to invoke all class functions
+*/
+
+#include<iostream>
+#include<iomanip>
+
+using namespace std;
+
+class insertion
+{
+    private:
+        int a[100], ele, n, p, i;
+    public:
+        void getdata();
+        void execute();
+        void putdata();
+};
+
+void insertion::getdata(){
+    cout<<"Enter the size of the array ";
+    cin>>n;
+    cout<<"Enter the array elements ";
+    for(i=0;i<n;i++)
+        cin>>a[i];
+    cout<<"Enter the element to be inserted ";
+    cin>> ele;
+    cout<<"Enter the position ";
+    cin>>p;
+}
+
+void insertion::execute(){
+    if(p>n){
+        cout<<"Invalid position";
+        exit(0);
+    }
+    
+    for(i=n-1; i>=p;i--)
+        a[i+1] = a[i];
+    
+    a[p] = ele;
+    n=n+1;
+    cout<<ele<<" is inserted successfully"<<endl;
+}
+
+void insertion::putdata(){
+    cout<<"Array after insertion "<<endl;
+    for(i=0;i<n;i++)
+        cout<<a[i]<<setw(4);
+}
+
+int main(){
+    insertion i;
+    i.getdata();
+    i.execute();
+    i.putdata();
+    
+}

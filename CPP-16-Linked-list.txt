@@ -1,0 +1,72 @@
+/*
+1. Define headers
+2. Define class linkedlist with private variables and public functions
+3. Define a strucure in CPP to have node details
+4. Define append() function to add new nodes
+5. Define display() to display the linked list items
+6. Define main() function to invoke all class functions
+*/
+
+#include<iostream>
+#include<iomanip>
+
+using namespace std;
+
+class linkedlist{
+    private:
+        struct node {
+            int info;
+            node *link;
+        }*start;
+    public:
+        linkedlist(){
+            start = NULL;
+        }
+        void append(int);
+        void display();
+};
+
+void linkedlist::append(int item){
+    node *x = new node;
+    x->info = item;
+    x->link = NULL;
+    if(start == NULL) {
+        start = x;
+    }
+    else {
+        node *temp = start;
+        while(temp->link != NULL){
+            temp = temp->link;
+        }
+        temp->link = x;
+    }
+    cout<<item<<" is inserted"<<endl;
+}
+
+void linkedlist::display(){
+    node *trav = start;
+    cout<<"\n Linked list is";
+    if(start == NULL) {
+        cout<<"Linked list is empty";
+        return;
+    }
+    while(trav != NULL){
+        cout<<trav->info<<endl;
+        trav = trav->link;
+    }
+}
+
+int main(){
+    linkedlist *x = new linkedlist;
+    x->display();
+    x->append(100);
+    x->display();
+    x->append(200);
+    x->display();
+    x->append(300);
+    x->display();
+}
+
+
+
+

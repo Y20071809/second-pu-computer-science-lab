@@ -1,0 +1,109 @@
+/*
+1. Define headers
+2. Define 'max' as global variable with default maximum value
+2. Define class stack with private variables and public functions
+3. Add a constructor to initialise the top value to -1
+4. Define push() function to add items to the stack
+5. Define pop() function to remove items from the stack
+5. Define display() function to show the stack items
+6. Define main() function
+		-> get the user choice to push / pop / display stack items
+*/
+
+#include<iostream>
+#include<iomanip>
+
+#define max 3
+
+using namespace std;
+
+class stack {
+    private: 
+        int stk[100], top;
+    public:
+        stack() {
+            top = -1;
+        }
+        void push();
+        void pop();
+        void display();
+
+};
+
+void stack::push() {
+    int item;
+    
+    if(top == max-1) {
+        cout<<"Stack Overflow"<<endl;
+        return;
+    }
+    
+    top++;
+    cout<<"Enter the item to insert";
+    cin>>item;
+    stk[top] = item;
+    cout<<item<<" is successfully pushed"<<endl;
+}
+
+void stack::pop(){
+    int item;
+    if(top==-1) {
+        cout<<"Stack underflow"<<endl;
+        return;
+    }
+    item=stk[top];
+    top--;
+    cout<<item<< " is successfully popped"<<endl;
+}
+
+void stack::display() {
+    if(top==-1){
+        cout<<"Stack is empty";
+    }
+    else {
+        cout<<"\nStack contains "<<endl;
+        for(int i=top;i>=0;i--)
+            cout<<stk[i]<<setw(4);
+        cout<<endl;
+    }
+}
+
+int main() {
+    stack s;
+    int choice;
+    do{
+        cout<<"___Stack operation_____"<<endl;
+        cout<<"1.Push"<<endl;
+        cout<<"2.Pop"<<endl;
+        cout<<"3.display"<<endl;
+        cout<<"4.exit"<<endl;
+        cout<<"Enter your choice ";
+        cin>>choice;
+        switch(choice){
+            case 1: s.push();
+                    break;
+            case 2: s.pop();
+                    break;
+            case 3: s.display();
+                    break;
+            case 4: exit(0);
+            default: cout<<"Wrong choice";
+        }
+    }while(choice!=4);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

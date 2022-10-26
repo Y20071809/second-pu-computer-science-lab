@@ -1,0 +1,66 @@
+/*
+1. Define headers
+2. Define class overload with private variables
+3. Define functions to find area within the class
+4. Define main function
+	-> get user input to find the area of which shape
+	-> write if-else condition to call the function and find appropriate area
+	-> display output within the condition
+*/
+
+#include<iostream>
+#include<math.h>
+
+using namespace std;
+
+class overload {
+    private:
+        double s;
+    public:
+        double area(double a) {
+            return a*a;
+        }
+        double area(double l, double w){
+            return l*w;
+        }
+        double area(double a, double b, double c){
+            s = (a+b+c) / 2;
+            return(sqrt(s*(s-a)*(s-b)*(s-c)));
+        } 
+};
+
+int main() {
+    double p,q,r;
+    int choice;
+    
+    overload f;
+    cout<<"Enter 1. to find area of square "<<endl;
+    cout<<"Enter 2. to find area of rectangle "<<endl;
+    cout<<"Enter 3. to find area of triangle "<<endl;
+    cout<<"Enter your choice (1 to 3) "<<endl;
+    cin>>choice;
+    
+    if(choice==1){
+        cout<<"Enter a side";
+        cin>>p;
+        cout<<"Area of square = "<<f.area(p);
+    }
+    else if(choice==2){
+        cout<<"Enter length and width";
+        cin>>p>>q;
+        cout<<"Area of rectangle = "<<f.area(p,q);
+    }
+    else if(choice==3){
+        cout<<"Enter three sides";
+        cin>>p>>q>>r;
+        cout<<"Area of triangle = "<<f.area(p,q,r);
+    } else {
+        cout<<"Invalid input";
+    }
+}
+
+
+
+
+
+
